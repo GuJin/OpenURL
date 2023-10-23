@@ -15,7 +15,7 @@
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
-<!--    <depends>org.jetbrains.android</depends>-->
+
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
@@ -24,20 +24,10 @@
 
         <projectService serviceImplementation="tech.gujin.ideaplugin.openurl.data.OpenURLSettingService"/>
 
-<!--        <postStartupActivity implementation="tech.gujin.ideaplugin.openurl.activity.PluginStartupActivity"/>-->
+        <postStartupActivity implementation="tech.gujin.ideaplugin.openurl.activity.PluginStartupActivity"/>
 
     </extensions>
 
-<!--    <project-components>-->
-<!--        <component>-->
-<!--            <implementation-class>tech.gujin.ideaplugin.openurl.activity.PluginStartupActivity</implementation-class>-->
-<!--        </component>-->
-<!--    </project-components>-->
-
-<!--    <applicationListeners >-->
-<!--        <listener class="tech.gujin.ideaplugin.openurl.activity.PluginStartupActivity" topic="com.intellij.openapi.project.ProjectManagerListener"/>-->
-<!--    </applicationListeners>-->
-    
     <actions>
         <group
                 id="tech.gujin.ideaplugin.openurl.OpenUrlGroup"

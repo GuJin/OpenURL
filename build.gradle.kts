@@ -16,8 +16,10 @@ repositories {
 intellij {
 //    version.set("2023.1.2")
     localPath.set("/Applications/IntelliJ IDEA CE.app/Contents")
+//    localPath.set("/Applications/Android Studio.app/Contents")
 
     type.set("IC") // Target IDE Platform
+//    type.set("AI") // Target IDE Platform
 
     plugins.set(listOf())
 }

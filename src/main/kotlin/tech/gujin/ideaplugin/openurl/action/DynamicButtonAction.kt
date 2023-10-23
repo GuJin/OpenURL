@@ -5,7 +5,6 @@ import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import tech.gujin.ideaplugin.openurl.data.OpenURLSettingService
-import tech.gujin.ideaplugin.openurl.utils.NotificationUtil
 
 
 class DynamicButtonAction(
@@ -22,7 +21,6 @@ class DynamicButtonAction(
     }
 
     override fun update(e: AnActionEvent) {
-        NotificationUtil.info(e.project!!, content = "update")
         val btnConfig = OpenURLSettingService.getButtonConfig(e.project, btnId)
         e.presentation.run {
             if (btnConfig == null) {
