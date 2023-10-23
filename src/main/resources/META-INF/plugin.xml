@@ -31,7 +31,7 @@
     <actions>
         <group
                 id="tech.gujin.ideaplugin.openurl.OpenUrlGroup"
-                text="Open Url"
+                text="Open URL"
                 popup="true">
             <add-to-group
                     group-id="ToolsMenu"

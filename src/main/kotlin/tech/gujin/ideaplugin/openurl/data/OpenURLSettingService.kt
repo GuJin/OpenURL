@@ -42,12 +42,12 @@ class OpenURLSettingService : PersistentStateComponent<OpenURLState> {
 }
 
 data class OpenURLState(
-        var pluginVersion: String? = null,
-        var buttonState: ButtonState? = null
+    var pluginVersion: String? = null,
+    var buttonState: ButtonState? = null
 ) : Serializable
 
 data class ButtonState(
-        var btnConfigMap: LinkedHashMap<Int, ButtonConfig> = LinkedHashMap()
+    var btnConfigMap: LinkedHashMap<Int, ButtonConfig> = LinkedHashMap()
 ) {
 
     companion object {
@@ -63,7 +63,7 @@ data class ButtonState(
     }
 
     fun outOfMax(): Boolean {
-        return btnConfigMap.size > MAX_BTN_COUNT
+        return btnConfigMap.size >= MAX_BTN_COUNT
     }
 
     fun createNewBtn(btnText: String, btnUrl: String): Int? {
@@ -106,8 +106,8 @@ data class ButtonState(
 }
 
 data class ButtonConfig(
-        var btnId: Int? = null,
-        var sort: Int? = btnId,
-        var btnText: String? = null,
-        var btnUrl: String? = null
+    var btnId: Int? = null,
+    var sort: Int? = btnId,
+    var btnText: String? = null,
+    var btnUrl: String? = null
 ) : Serializable

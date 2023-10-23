@@ -6,7 +6,7 @@ import com.intellij.openapi.project.Project
 
 object NotificationUtil {
 
-    fun info(project: Project, title: String = "Open url", content: String) {
+    fun info(project: Project, title: String = "Open URL", content: String) {
         val manager = NotificationGroupManager.getInstance()
         manager.getNotificationGroup("OpenUrlNotificationGroup")
                 .createNotification(title = title, content = content, type = NotificationType.INFORMATION)
