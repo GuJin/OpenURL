@@ -1,0 +1,66 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin require-restart="true">
+
+    <id>tech.gujin.ideaplugin.openurl</id>
+    <name>Open URL</name>
+    <vendor>gujin</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+    Add a button to the toolbar, when clicked, opens the link in the browser.<br>
+  ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+<!--    <depends>org.jetbrains.android</depends>-->
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+
+        <notificationGroup id="OpenUrlNotificationGroup" displayType="BALLOON"/>
+
+        <projectService serviceImplementation="tech.gujin.ideaplugin.openurl.data.OpenURLSettingService"/>
+
+<!--        <postStartupActivity implementation="tech.gujin.ideaplugin.openurl.activity.PluginStartupActivity"/>-->
+
+    </extensions>
+
+<!--    <project-components>-->
+<!--        <component>-->
+<!--            <implementation-class>tech.gujin.ideaplugin.openurl.activity.PluginStartupActivity</implementation-class>-->
+<!--        </component>-->
+<!--    </project-components>-->
+
+<!--    <applicationListeners >-->
+<!--        <listener class="tech.gujin.ideaplugin.openurl.activity.PluginStartupActivity" topic="com.intellij.openapi.project.ProjectManagerListener"/>-->
+<!--    </applicationListeners>-->
+    
+    <actions>
+        <group
+                id="tech.gujin.ideaplugin.openurl.OpenUrlGroup"
+                text="Open Url"
+                popup="true">
+            <add-to-group
+                    group-id="ToolsMenu"
+                    anchor="last"/>
+
+            <action
+                    id="tech.gujin.ideaplugin.openurl.action.AddButtonAction"
+                    class="tech.gujin.ideaplugin.openurl.action.AddButtonAction"
+                    text="Add Button"
+                    description="Create new button">
+            </action>
+
+            <action
+                    id="tech.gujin.ideaplugin.openurl.action.EditButtonAction"
+                    class="tech.gujin.ideaplugin.openurl.action.EditButtonAction"
+                    text="Manage Buttons"
+                    description="Edit or delete buttons">
+            </action>
+        </group>
+    </actions>
+
+</idea-plugin>
