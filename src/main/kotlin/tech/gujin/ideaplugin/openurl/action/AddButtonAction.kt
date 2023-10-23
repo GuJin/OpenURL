@@ -5,7 +5,6 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.ui.Messages
 import tech.gujin.ideaplugin.openurl.data.ButtonState
 import tech.gujin.ideaplugin.openurl.data.OpenURLSettingService
-import tech.gujin.ideaplugin.openurl.utils.ActionUtil
 import tech.gujin.ideaplugin.openurl.utils.NotificationUtil
 import tech.gujin.ideaplugin.openurl.view.ButtonConfigDialog
 
