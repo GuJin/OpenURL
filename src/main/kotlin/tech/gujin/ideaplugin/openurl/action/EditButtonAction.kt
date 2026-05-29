@@ -14,8 +14,6 @@ import tech.gujin.ideaplugin.openurl.view.ManageButtonDialog
 
 class EditButtonAction : AnAction() {
 
-    private var manageButtonDialog: ManageButtonDialog? = null
-
     override fun actionPerformed(e: AnActionEvent) {
         val project = e.project ?: return
         val buttonState = OpenURLSettingService.getButtonState(project) ?: return
@@ -25,12 +23,17 @@ class EditButtonAction : AnAction() {
             return
         }
 
-        manageButtonDialog = ManageButtonDialog(project, { doDelete(project, it, buttonState) }, { doEdit(project, it, buttonState) })
-        manageButtonDialog!!.show()
+        lateinit var manageButtonDialog: ManageButtonDialog
+        manageButtonDialog = ManageButtonDialog(
+            project,
+            { doDelete(project, it, buttonState, manageButtonDialog) },
+            { doEdit(project, it, buttonState, manageButtonDialog) }
+        )
+        manageButtonDialog.show()
         return
     }
 
-    private fun doDelete(project: Project, btnId: Int, buttonState: ButtonState) {
+    private fun doDelete(project: Project, btnId: Int, buttonState: ButtonState, manageButtonDialog: ManageButtonDialog) {
         val buttonConfig = buttonState.btnConfigMap[btnId] ?: return
         val msg = "Button Text\n${buttonConfig.btnText}\n\nJump URL\n${buttonConfig.btnUrl}"
         val result = Messages.showYesNoDialog(project, msg, "Delete", Messages.getQuestionIcon())
@@ -40,14 +43,14 @@ class EditButtonAction : AnAction() {
         buttonState.deleteButtonConfig(btnId)
         NotificationUtil.info(project, content = "Button deleted successfully")
         if (buttonState.btnConfigMap.isEmpty()) {
-            manageButtonDialog?.close(0)
+            manageButtonDialog.close(0)
             return
         }
 
-        manageButtonDialog?.updateAllItem()
+        manageButtonDialog.updateAllItem()
     }
 
-    private fun doEdit(project: Project, btnId: Int, buttonState: ButtonState) {
+    private fun doEdit(project: Project, btnId: Int, buttonState: ButtonState, manageButtonDialog: ManageButtonDialog) {
         val btnConfig = buttonState.btnConfigMap[btnId] ?: return
         val buttonConfigDialog = ButtonConfigDialog(project, "Edit Button", btnConfig)
         buttonConfigDialog.setOkActionListener { btnText, btnUrl ->
@@ -59,7 +62,7 @@ class EditButtonAction : AnAction() {
             }
 
             buttonState.updateButtonConfig(btnId, btnText, btnUrl)
-            manageButtonDialog?.updateItem(btnId)
+            manageButtonDialog.updateItem(btnId)
             NotificationUtil.info(project, content = "Button updated successfully")
             return@setOkActionListener true
         }
