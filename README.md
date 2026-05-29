@@ -1,10 +1,11 @@
 # OpenURL
 [plugin homepage](https://plugins.jetbrains.com/plugin/23003-open-url)
 
-The Open URL plugin allows add buttons to the toolbar, when clicked, opens the link in the browser.  
-You can add and manage buttons in the Tools menu.
+Open URL lets you add custom toolbar buttons that open configured links in your browser.
+Buttons are configured per project in Settings | Tools | Open URL.
 
 
 ## Getting Started
 1. Please restart the IDE after installing the plugin.
-2. To find "OpenURL" in the Tools menu, you can add and manage buttons. You have the option to add up to 8 buttons. When adding buttons, if you encounter any issues with the URL, you can try copying it from your browser's address bar.
+2. Open Settings | Tools | Open URL to add, edit, delete, or reorder buttons. You can configure up to 8 buttons per project.
+3. If a URL does not open as expected, copy it from your browser's address bar and paste it into the Jump URL field.

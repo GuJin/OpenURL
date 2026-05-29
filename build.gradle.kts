@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "tech.gujin.ideaplugin"
-version = "1.0.1"
+version = "1.0.2"
 
 repositories {
     mavenCentral()
@@ -26,8 +26,8 @@ intellijPlatform {
     pluginConfiguration {
         changeNotes.set("""
             <ul>
-                <li>Support IntelliJ Platform 2024.3 and newer IDEs.</li>
-                <li>Replace a toolbar API scheduled for removal.</li>
+                <li>Add a project settings page for managing Open URL buttons.</li>
+                <li>Replace button management dialogs with a native IDE table.</li>
             </ul>
         """.trimIndent())
 

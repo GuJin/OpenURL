@@ -24,33 +24,13 @@
 
         <projectService serviceImplementation="tech.gujin.ideaplugin.openurl.data.OpenURLSettingService"/>
 
+        <projectConfigurable id="tech.gujin.ideaplugin.openurl.settings"
+                             parentId="tools"
+                             instance="tech.gujin.ideaplugin.openurl.settings.OpenUrlConfigurable"
+                             displayName="Open URL"/>
+
         <postStartupActivity implementation="tech.gujin.ideaplugin.openurl.activity.PluginStartupActivity"/>
 
     </extensions>
-
-    <actions>
-        <group
-                id="tech.gujin.ideaplugin.openurl.OpenUrlGroup"
-                text="Open URL"
-                popup="true">
-            <add-to-group
-                    group-id="ToolsMenu"
-                    anchor="last"/>
-
-            <action
-                    id="tech.gujin.ideaplugin.openurl.action.AddButtonAction"
-                    class="tech.gujin.ideaplugin.openurl.action.AddButtonAction"
-                    text="Add Button"
-                    description="Create new button">
-            </action>
-
-            <action
-                    id="tech.gujin.ideaplugin.openurl.action.EditButtonAction"
-                    class="tech.gujin.ideaplugin.openurl.action.EditButtonAction"
-                    text="Manage Buttons"
-                    description="Edit or delete buttons">
-            </action>
-        </group>
-    </actions>
 
 </idea-plugin>
